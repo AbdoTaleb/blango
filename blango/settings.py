@@ -40,6 +40,8 @@ class Dev(Configuration):
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
 
+  
+  AUTH_USER_MODEL = "blango_auth.User"
   # Application definition
 
   INSTALLED_APPS = [
@@ -53,6 +55,7 @@ class Dev(Configuration):
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
+      'blango_auth',
       
   ]
   INTERNAL_IPS = ['127.0.0.1', '192.168.11.179', '10.90.195.44']
