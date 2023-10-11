@@ -43,6 +43,7 @@ class Dev(Configuration):
   # Application definition
 
   INSTALLED_APPS = [
+      'debug_toolbar',
       'django.contrib.admin',
       'django.contrib.auth',
       'django.contrib.contenttypes',
@@ -52,9 +53,11 @@ class Dev(Configuration):
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
+      
   ]
-
+  INTERNAL_IPS = ['127.0.0.1', '192.168.11.179', '10.90.195.44']
   MIDDLEWARE = [
+      'debug_toolbar.middleware.DebugToolbarMiddleware',
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
@@ -63,6 +66,21 @@ class Dev(Configuration):
       'django.contrib.messages.middleware.MessageMiddleware',
   #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
   ]
+  DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+  ]
+  
 
   ROOT_URLCONF = 'blango.urls'
 
