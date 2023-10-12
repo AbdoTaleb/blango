@@ -46,8 +46,15 @@ class Dev(Configuration):
   EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
   ACCOUNT_ACTIVATION_DAYS = 7
   
-  # Application definition
+  SITE_ID = 1
 
+  # Since our custom User model doesn’t have a username field
+  ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+  ACCOUNT_EMAIL_REQUIRED = True
+  ACCOUNT_USERNAME_REQUIRED = False
+  ACCOUNT_AUTHENTICATION_METHOD = "email"
+  
+  # Application definition
   INSTALLED_APPS = [
       'debug_toolbar',
       'django.contrib.admin',
@@ -55,11 +62,16 @@ class Dev(Configuration):
       'django.contrib.contenttypes',
       'django.contrib.sessions',
       'django.contrib.messages',
+      'django.contrib.sites',
       'django.contrib.staticfiles',
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
       'blango_auth',
+      'allauth',
+      'allauth.account',
+      'allauth.socialaccount',
+      'allauth.socialaccount.providers.google',
       
   ]
   INTERNAL_IPS = ['127.0.0.1', '192.168.11.179', '10.90.195.44']

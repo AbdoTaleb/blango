@@ -2,8 +2,12 @@
 {% load crispy_forms_tags blog_extras %}
 {% block title %}Log In to Blango{% endblock %}
 {% block content %}
+
 {% row "justify-content-center" %}
     {% col "col-md-6" %}
+    <p>
+        <a href="{% url "google_login" %}">Log in with Google</a>
+    </p>
     {% if next %}
         {% if user.is_authenticated %}
         <p>Your account doesn't have access to this page. To proceed,
