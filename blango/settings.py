@@ -39,9 +39,13 @@ class Dev(Configuration):
   SESSION_COOKIE_SECURE = True
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
-
   
+  REGISTRATION_OPEN = True
   AUTH_USER_MODEL = "blango_auth.User"
+
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+  ACCOUNT_ACTIVATION_DAYS = 7
+  
   # Application definition
 
   INSTALLED_APPS = [
