@@ -72,6 +72,7 @@ class Dev(Configuration):
       'allauth.account',
       'allauth.socialaccount',
       'allauth.socialaccount.providers.google',
+      'rest_framework',
       
   ]
   INTERNAL_IPS = ['127.0.0.1', '192.168.11.179', '10.90.195.44']
