@@ -85,6 +85,14 @@ class Dev(Configuration):
     ]
   }
 
+
+  SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+        "Basic": {"type": "basic"},
+    }
+  }
+
   INTERNAL_IPS = ['127.0.0.1', '192.168.11.179', '10.90.195.44']
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
